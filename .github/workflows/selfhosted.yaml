@@ -1,16 +1,18 @@
-name: Self-Hosted Runner Demo
+name: Self-Hosted Runner Test
 
 on:
-  workflow_dispatch:   # lets you run it manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   test:
-    runs-on: [self-hosted, rocky]   # use the labels you set during config
+    runs-on: self-hosted   # or add more labels if you set them
     steps:
       - uses: actions/checkout@v3
 
-      - name: Show runner info
-        run: |
-          echo "Running on self-hosted runner"
-          uname -a
-          python3 --version || python --version
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Run unit tests
+        run: python -m unittest discover -v
