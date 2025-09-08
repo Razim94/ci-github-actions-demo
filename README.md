@@ -18,3 +18,8 @@ This repository contains sample GitHub Actions workflows for learning Continuous
    - Trigger: On push and pull requests to `main`.  
    - Strategy: Runs the test suite across multiple Python versions (`3.7`, `3.8`, `3.9`, `"3.10"`).  
    - Demonstrates running jobs in parallel with different environments.
+   - 
+### Bonus: Self-Hosted Runner
+
+A self-hosted runner was set up on a Rocky Linux VM and linked to this repository.  
+The `selfhosted.yml` workflow targets it with `runs-on: self-hosted` and runs the unit tests using the system’s already installed Python 3.9.
