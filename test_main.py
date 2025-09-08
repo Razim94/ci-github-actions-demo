@@ -1,10 +1,9 @@
 import unittest
-from main import add   # import the function from main.py
+from main import main
 
 class TestMain(unittest.TestCase):
-    def test_add_numbers(self):
-        # check that add(2, 3) returns 5
-        self.assertEqual(add(2, 3), 5)
+    def test_main_returns_hello(self):
+        self.assertEqual(main(), "Hello, world!")
 
 if __name__ == "__main__":
     unittest.main()
